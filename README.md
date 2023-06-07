@@ -1,7 +1,7 @@
 # Merlin - Milvus Integration with Milvus Performance Benchmarks
 
-This repo describes how to use Milvus vector database indexing and search framework in combination with NVIDIA Merlin, an open-source framework for
-developing recommenders systems at any scale.
+This repo describes how to use Milvus vector database indexing and search framework in combination with [NVIDIA Merlin](https://github.com/NVIDIA-Merlin),
+an open-source framework for developing recommenders systems at any scale.
 
 There are two notebooks provided for guidance. Notebook 01 demonstrates how to use Merlin Models library to train a model and export embeddings
 vectors for users and items based on interaction data from an e-commerce system. Notebook 02 shows how to use a customer Merlin Systems operator
