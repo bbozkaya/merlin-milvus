@@ -61,6 +61,8 @@ See below for the detailed GPU-CPU speedup chart for all parameter combinations 
 
 ![test image](./images/item-item-gpuspeedup.png)
 
+</details>
+<details>
 <summary><h2>Users vs. Users vector similarity search</h2></summary>
 
 Recall range with HNSW: 0.884-1.0
