@@ -13,4 +13,4 @@ The benchmark folder provides information on several performance benchmark condu
 calculated in Notebook 01. Milvus is GPU-accelerated and shows improved and much needed performance for real-life RecSys usecases and datasets,
 so be sure to take a look at the benchmark performance results.
 
-A blog post about all the work conducted is available here (TODO).
+A blog post about all the work conducted is available here once published.
