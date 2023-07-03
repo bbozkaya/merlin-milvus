@@ -31,3 +31,19 @@ We considered the following settings and variations of parameters in these bench
   + GPU: NVIDIA A100 single GPU with 80 GB memory
 
 Overall, we report recall vs. QPS (queries per second) tradeoff as well as well CPU times and GPU speedup factors.
+
+Note: the query batch size (nq) we have used in our benchmarks. This is useful in workflows where multiple simultaneous requests can be sent to the inference server
+(eg. offline recommendations requested and sent to a list of email recipients, or online recommendations created by pooling concurrent requests arriving in a short period of time
+and processing them all at once). Depending on the use-case, Triton Inference Server can also help process these requests in batches.
+
+## Items vs. Items vector similarity search
+
+Recall range with HNSW: 0.958-1.0
+Recall range with IVF_PQ: 0.631-0.997
+Total time in seconds to execute all queries on CPU, given a parameter combination
+  - HNSW: 5.22-5.33
+  - IVF_PQ: 13.67-14.67
+GPU speedup with IVF_PQ: 4x to 14x
+
+See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
+
