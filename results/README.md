@@ -14,6 +14,10 @@ User-user similarity | 3x to 11x | 0.904-0.999 | Up to 28185 (with GPU)
 User-item similarity | 4x to 16x | 0.974-1.000 | Up to 42105 (with GPU)
 
 We considered the following settings and variations of parameters in these benchmarks:
+
+<details>
+<summary>Benchmark configuration</summary>
+
 - Vector dataset: item embeddings (49K), user embeddings (7.3M)
 - Top-k (k most similar items): 100
 - Index type: HNSW, IVFPQ
@@ -43,6 +47,7 @@ Overall, we report recall vs. QPS (queries per second) tradeoff as well as well 
 Note: the query batch size (nq) we have used in our benchmarks. This is useful in workflows where multiple simultaneous requests can be sent to the inference server
 (eg. offline recommendations requested and sent to a list of email recipients, or online recommendations created by pooling concurrent requests arriving in a short period of time
 and processing them all at once). Depending on the use-case, Triton Inference Server can also help process these requests in batches.
+</details>
 
 <details>
 <summary><h2>Items vs. Items vector similarity search</h2></summary>
