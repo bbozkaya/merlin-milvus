@@ -49,6 +49,8 @@ Note: the query batch size (nq) we have used in our benchmarks. This is useful i
 and processing them all at once). Depending on the use-case, Triton Inference Server can also help process these requests in batches.
 </details>
 
+The following sections further detail benchmark findings for each of the test scenarios completed.
+
 <details>
 <summary><h3>Items vs. Items vector similarity search</h3></summary>
 
@@ -84,6 +86,10 @@ See below for the detailed GPU-CPU speedup chart for all parameter combinations 
 
 ![test image](./images/user-user-gpuspeedup.png)
 
+The following figure depicts the tradeoff between QPS and recall where data points are collected from the execution of each parameter combination with IVF_PQ on CPU and GPU.
+
+![test image](./images/user-user-tradeoff.png)
+
 </details>
 <details>
 <summary><h3>Users vs. Items vector similarity search</h3></summary>
@@ -101,5 +107,9 @@ GPU speedup with IVF_PQ: 4x to 16x
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
 
 ![test image](./images/user-item-gpuspeedup.png)
+
+The following figure depicts the tradeoff between QPS and recall where data points are collected from the execution of each parameter combination with IVF_PQ on CPU and GPU.
+
+![test image](./images/user-item-tradeoff.png)
 
 </details>
