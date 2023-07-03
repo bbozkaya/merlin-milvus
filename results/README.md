@@ -68,7 +68,7 @@ See below for the detailed GPU-CPU speedup chart for all parameter combinations 
 
 </details>
 <details>
-<summary><h2>Users vs. Users vector similarity search</h2></summary>
+<summary><h3>Users vs. Users vector similarity search</h3></summary>
 
 Recall range with HNSW: 0.884-1.0
 
@@ -81,5 +81,25 @@ Total time in seconds to execute all queries on CPU, given a parameter combinati
 GPU speedup with IVF_PQ: 3x to 11x
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
+
+![test image](./images/user-user-gpuspeedup.png)
+
+</details>
+<details>
+<summary><h3>Users vs. Items vector similarity search</h3></summary>
+
+Recall range with HNSW: 
+
+Recall range with IVF_PQ: 
+
+Total time in seconds to execute all queries on CPU, given a parameter combination:
+  - HNSW: 
+  - IVF_PQ: 
+
+GPU speedup with IVF_PQ: 4x to 16x
+
+See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
+
+![test image](./images/user-item-gpuspeedup.png)
 
 </details>
