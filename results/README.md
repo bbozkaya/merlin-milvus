@@ -16,7 +16,7 @@ User-item similarity | 4x to 16x | 0.974-1.000 | Up to 42105 (with GPU)
 We considered the following settings and variations of parameters in these benchmarks:
 
 <details>
-<summary>Benchmark configuration</summary>
+<summary><h3>Benchmark configuration</h3></summary>
 
 - Vector dataset: item embeddings (49K), user embeddings (7.3M)
 - Top-k (k most similar items): 100
@@ -50,7 +50,7 @@ and processing them all at once). Depending on the use-case, Triton Inference Se
 </details>
 
 <details>
-<summary><h2>Items vs. Items vector similarity search</h2></summary>
+<summary><h3>Items vs. Items vector similarity search</h3></summary>
 
 Recall range with HNSW: 0.958-1.0
 
