@@ -5,6 +5,14 @@ To demonstrate the case for using a fast and efficient vector indexing/search li
 - Using Milvus to build vector indexes with the two sets of embeddings we generated with Merlin: 1) user embeddings for 7.3M unique users, split as 85% train set (for indexing) and 15% test set (for querying), and 2) item embeddings for 49K products (with a 50-50 train-test split). This benchmark is done independently for each vector dataset and results are reported separately.
 - Using Milvus to build a vector index for the 49K item embeddings dataset, and querying the 7.3M unique users against this index to retrieve most similar/relevant top k items.
 
+Here is a summary over all parameter configurations tested with HNSW and IVF_PQ on CPU and GPU:
+
+Dataset (YooChoose) | GPU Speedup | Recall | QPS
+--- | --- | --- | --- 
+Item-item similarity | 4x to 14x | 0.631-0.997 | Up to 42425 (with GPU)
+User-user similarity | 3x to 11x | 0.904-0.999 | Up to 28185 (with GPU)
+User-item similarity | 4x to 16x | 0.974-1.000 | Up to 42105 (with GPU)
+
 We considered the following settings and variations of parameters in these benchmarks:
 - Vector dataset: item embeddings (49K), user embeddings (7.3M)
 - Top-k (k most similar items): 100
@@ -42,7 +50,7 @@ Recall range with HNSW: 0.958-1.0
 
 Recall range with IVF_PQ: 0.631-0.997
 
-Total time in seconds to execute all queries on CPU, given a parameter combination
+Total time in seconds to execute all queries on CPU, given a parameter combination:
   - HNSW: 5.22-5.33
   - IVF_PQ: 13.67-14.67
 
