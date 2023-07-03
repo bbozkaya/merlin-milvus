@@ -39,10 +39,13 @@ and processing them all at once). Depending on the use-case, Triton Inference Se
 ## Items vs. Items vector similarity search
 
 Recall range with HNSW: 0.958-1.0
+
 Recall range with IVF_PQ: 0.631-0.997
+
 Total time in seconds to execute all queries on CPU, given a parameter combination
   - HNSW: 5.22-5.33
   - IVF_PQ: 13.67-14.67
+
 GPU speedup with IVF_PQ: 4x to 14x
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
