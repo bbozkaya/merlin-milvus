@@ -9,7 +9,7 @@ e-commerce system. [Notebook 02](https://github.com/bbozkaya/merlin-milvus/blob/
 shows how to use a customer Merlin Systems operator as an interface between Milvus server and NVIDIA Triton Inference Server, for making inference
 queries on user-item similarity.
 
-The benchmark folder provides information on several performance benchmark conducted with Milvus framework using the user and item embeddings
+The results folder provides information on several performance benchmark conducted with Milvus framework using the user and item embeddings
 calculated in Notebook 01. Milvus is GPU-accelerated and shows improved and much needed performance for real-life RecSys usecases and datasets,
 so be sure to take a look at the benchmark performance results.
 
