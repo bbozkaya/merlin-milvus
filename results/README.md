@@ -44,7 +44,7 @@ Note: the query batch size (nq) we have used in our benchmarks. This is useful i
 (eg. offline recommendations requested and sent to a list of email recipients, or online recommendations created by pooling concurrent requests arriving in a short period of time
 and processing them all at once). Depending on the use-case, Triton Inference Server can also help process these requests in batches.
 
-## Items vs. Items vector similarity search
+<summery>## Items vs. Items vector similarity search</summary>
 
 Recall range with HNSW: 0.958-1.0
 
