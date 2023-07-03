@@ -58,3 +58,4 @@ GPU speedup with IVF_PQ: 4x to 14x
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
 
+![test image](../images/fourstages.png)
