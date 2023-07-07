@@ -9,9 +9,9 @@ Here is a summary over all parameter configurations tested with HNSW and IVF_PQ 
 
 Dataset (YooChoose) | GPU Speedup | Recall | QPS
 --- | --- | --- | --- 
-Item-item similarity | 4x to 14x | 0.631-0.997 | Up to 42425 (with GPU)
-User-user similarity | 3x to 11x | 0.904-0.999 | Up to 28185 (with GPU)
-User-item similarity | 4x to 16x | 0.974-1.000 | Up to 42105 (with GPU)
+Item-item similarity | 4x to 15x (avg. 8.5x) | 0.665-0.997 | Up to 43504 (with GPU)
+User-user similarity | 37x to 91x (avg. 76.1x) | 0.922-0.999 | Up to 41708 (with GPU)
+User-item similarity | 4x to 17x (avg. 9.3x | 0.974-1.000 | Up to 43719 (with GPU)
 
 We considered the following settings and variations of parameters in these benchmarks:
 
@@ -56,13 +56,13 @@ The following sections further detail benchmark findings for each of the test sc
 
 Recall range with HNSW: 0.958-1.0
 
-Recall range with IVF_PQ: 0.631-0.997
+Recall range with IVF_PQ: 0.665-0.997
 
 Total time in seconds to execute all queries on CPU, given a parameter combination:
   - HNSW: 5.22-5.33
   - IVF_PQ: 13.67-14.67
 
-GPU speedup with IVF_PQ: 4x to 14x
+GPU speedup with IVF_PQ: 4x to 15x (average: 8.5x)
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
 
@@ -74,13 +74,13 @@ See below for the detailed GPU-CPU speedup chart for all parameter combinations 
 
 Recall range with HNSW: 0.884-1.0
 
-Recall range with IVF_PQ: 0.904-0.999
+Recall range with IVF_PQ: 0.922-0.999
 
 Total time in seconds to execute all queries on CPU, given a parameter combination:
-  - HNSW: 279.89-295.56
+  - HNSW: 279.78-295.56
   - IVF_PQ: 3082.67-10932.33
 
-GPU speedup with IVF_PQ: 3x to 11x
+GPU speedup with IVF_PQ: 37x to 91x (average: 76.1x)
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
 
@@ -94,15 +94,15 @@ The following figure depicts the tradeoff between QPS and recall where data poin
 <details>
 <summary><h3>Users vs. Items vector similarity search</h3></summary>
 
-Recall range with HNSW: 
+Recall range with HNSW: 0.948-1.0
 
-Recall range with IVF_PQ: 
+Recall range with IVF_PQ: 0.974-1.0
 
 Total time in seconds to execute all queries on CPU, given a parameter combination:
-  - HNSW: 
-  - IVF_PQ: 
+  - HNSW: 1573.78-1604.11
+  - IVF_PQ: 5016.33-5371.00
 
-GPU speedup with IVF_PQ: 4x to 16x
+GPU speedup with IVF_PQ: 4x to 17x (average: 9.3x)
 
 See below for the detailed GPU-CPU speedup chart for all parameter combinations tested:
 
