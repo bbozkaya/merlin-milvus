@@ -1,0 +1,545 @@
+[2023-06-10 05:10:04,596] -  INFO: ------------------------------------------------- Recall task started! ------------------------------------------------- (util_log.py:25)
+[2023-06-10 05:10:04,598] -  INFO: [DatasetDownload] File existed:/home/bbozkaya/wphicks/vectordb-benchmark/datasets/dataset_files/yoochoose.hdf5 (util_log.py:25)
+[2023-06-10 05:10:06,478] -  INFO: [ClientMilvus] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {'batch': 1000},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection',
+                       'other_fields': []},
+ 'index_params': {'index_type': 'HNSW',
+                  'index_param': {'M': 48, 'efConstruction': 500}},
+ 'load_params': {},
+ 'search_params': {'timeout': 1800,
+                   'top_k': [100],
+                   'nq': [1000],
+                   'search_param': {'ef': [10,
+                                           20,
+                                           40,
+                                           80,
+                                           120,
+                                           200,
+                                           400,
+                                           600,
+                                           800]}},
+ 'concurrent_params': {},
+ 'concurrent_tasks': []} (util_log.py:25)
+[2023-06-10 05:10:06,479] -  INFO: [ClientMilvus] Start preparing data (util_log.py:25)
+[2023-06-10 05:10:06,502] -  INFO: [ClientMilvus] Start inserting data (util_log.py:25)
+[2023-06-10 05:12:10,423] -  INFO: [ClientMilvus] Start building index (util_log.py:25)
+[2023-06-10 05:14:59,008] -  INFO: [ClientMilvus] Start loading data (util_log.py:25)
+[2023-06-10 05:15:09,060] -  INFO: [ClientMilvus] Insert time:108.327s, Index time:168.585s, Load time:10.051s (util_log.py:25)
+[2023-06-10 05:15:09,060] -  INFO: [ClientMilvus] Data preparation completed (util_log.py:25)
+[2023-06-10 05:19:20,900] -  INFO: [ClientMilvus] Search recall:0.999, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 10}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:23:34,002] -  INFO: [ClientMilvus] Search recall:0.999, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 20}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:27:47,501] -  INFO: [ClientMilvus] Search recall:0.999, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 40}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:32:00,934] -  INFO: [ClientMilvus] Search recall:0.999, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 80}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:36:18,112] -  INFO: [ClientMilvus] Search recall:0.999, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 120}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:40:52,835] -  INFO: [ClientMilvus] Search recall:1.0, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 200}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:46:15,436] -  INFO: [ClientMilvus] Search recall:1.0, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 400}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:52:23,531] -  INFO: [ClientMilvus] Search recall:1.0, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 600}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:59:15,638] -  INFO: [ClientMilvus] Search recall:1.0, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'ef': 800}, 'timeout': 1800, 'metric_type': 'L2'} (util_log.py:25)
+[2023-06-10 05:59:15,641] -  INFO: ------------------------------------------------ Recall task finished! ------------------------------------------------- (util_log.py:25)
+[2023-06-10 05:59:16,428] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 05:59:16,482] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 10},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 05:59:16,482] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 05:59:16,482] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 05:59:23,122] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 05:59:25,124] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 05:59:25,124] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 05:59:25,125] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 05:59:25,125] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 05:59:45,133] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 05:59:45,134] -  INFO:  search                             225     0(0.00%)  |     866     224    1011     874     937  |   11.25    0.00 (util_log.py:25)
+[2023-06-10 06:00:05,139] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:05,140] -  INFO:  search                             452     0(0.00%)  |     878     739     987     879     974  |   11.35    0.00 (util_log.py:25)
+[2023-06-10 06:00:25,145] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:25,145] -  INFO:  search                             679     0(0.00%)  |     880     830     974     877     947  |   11.35    0.00 (util_log.py:25)
+[2023-06-10 06:00:25,965] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:00:25,966] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:00:25,966] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:25,967] -  INFO:  search                             689     0(0.00%)  |     875     224    1011     877     961  |   11.32    0.00 (util_log.py:25)
+[2023-06-10 06:00:25,967] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:00:25,967] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:25,968] -  INFO:  search                             689     0(0.00%)  |     875     224    1011     877     961  |   11.32    0.00 (util_log.py:25)
+[2023-06-10 06:00:25,968] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:00:25,992] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 689,
+ 'rps': 11.3248,
+ 'total_time_s': 60.8397,
+ 'avg_time_ms': 875.3254,
+ 'min_time_ms': 224.9317,
+ 'max_time_ms': 1011.3907,
+ 'median_time_ms': 877.0324,
+ 'p95_time_ms': 922.5777,
+ 'p99_time_ms': 961.3165,
+ 'sum_all_rt_ms': 603099.1988} (util_log.py:25)
+[2023-06-10 06:00:25,996] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:00:26,773] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:00:26,803] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 20},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:00:26,803] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:00:26,803] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:00:33,552] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:00:35,554] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:00:35,554] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:00:35,556] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:35,556] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:00:55,568] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:00:55,570] -  INFO:  search                             223     0(0.00%)  |     874     240     995     884     952  |   11.15    0.00 (util_log.py:25)
+[2023-06-10 06:01:15,576] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:01:15,576] -  INFO:  search                             450     0(0.00%)  |     881     782     974     877     962  |   11.35    0.00 (util_log.py:25)
+[2023-06-10 06:01:35,584] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:01:35,584] -  INFO:  search                             674     0(0.00%)  |     889     838     927     890     923  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:01:36,368] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:01:36,369] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:01:36,369] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:01:36,370] -  INFO:  search                             684     0(0.00%)  |     881     240     995     884     954  |   11.25    0.00 (util_log.py:25)
+[2023-06-10 06:01:36,370] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:01:36,370] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:01:36,370] -  INFO:  search                             684     0(0.00%)  |     881     240     995     884     954  |   11.25    0.00 (util_log.py:25)
+[2023-06-10 06:01:36,370] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:01:36,392] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 684,
+ 'rps': 11.2477,
+ 'total_time_s': 60.8124,
+ 'avg_time_ms': 881.4719,
+ 'min_time_ms': 240.8578,
+ 'max_time_ms': 995.5596,
+ 'median_time_ms': 884.7866,
+ 'p95_time_ms': 919.7565,
+ 'p99_time_ms': 954.3067,
+ 'sum_all_rt_ms': 602926.7971} (util_log.py:25)
+[2023-06-10 06:01:36,396] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:01:37,205] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:01:37,235] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 40},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:01:37,235] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:01:37,235] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:01:44,002] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:01:46,005] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:01:46,005] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:01:46,006] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:01:46,006] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:02:06,014] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:06,015] -  INFO:  search                             224     0(0.00%)  |     868     220    1005     879     934  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:02:26,021] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:26,021] -  INFO:  search                             448     0(0.00%)  |     891     789     990     887     975  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:02:46,027] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:46,028] -  INFO:  search                             674     0(0.00%)  |     884     830     947     884     942  |   11.30    0.00 (util_log.py:25)
+[2023-06-10 06:02:46,856] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:02:46,856] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:02:46,857] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:46,857] -  INFO:  search                             684     0(0.00%)  |     881     220    1005     884     962  |   11.24    0.00 (util_log.py:25)
+[2023-06-10 06:02:46,857] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:02:46,857] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:46,858] -  INFO:  search                             684     0(0.00%)  |     881     220    1005     884     962  |   11.24    0.00 (util_log.py:25)
+[2023-06-10 06:02:46,858] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:02:46,882] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 684,
+ 'rps': 11.2409,
+ 'total_time_s': 60.849,
+ 'avg_time_ms': 881.8597,
+ 'min_time_ms': 220.7348,
+ 'max_time_ms': 1005.6239,
+ 'median_time_ms': 884.0657,
+ 'p95_time_ms': 930.9121,
+ 'p99_time_ms': 962.7888,
+ 'sum_all_rt_ms': 603192.0556} (util_log.py:25)
+[2023-06-10 06:02:46,885] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:02:47,700] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:02:47,732] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 80},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:02:47,732] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:02:47,732] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:02:54,424] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:02:56,427] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:02:56,427] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:02:56,429] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:02:56,429] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:03:16,437] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:03:16,437] -  INFO:  search                             223     0(0.00%)  |     875     240    1013     885     929  |   11.15    0.00 (util_log.py:25)
+[2023-06-10 06:03:36,444] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:03:36,445] -  INFO:  search                             447     0(0.00%)  |     891     819     981     890     964  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:03:56,450] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:03:56,451] -  INFO:  search                             671     0(0.00%)  |     888     830     955     887     940  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:03:57,223] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:03:57,224] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:03:57,224] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:03:57,224] -  INFO:  search                             681     0(0.00%)  |     885     240    1013     887     955  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:03:57,224] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:03:57,224] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:03:57,225] -  INFO:  search                             681     0(0.00%)  |     885     240    1013     887     955  |   11.20    0.00 (util_log.py:25)
+[2023-06-10 06:03:57,225] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:03:57,249] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 681,
+ 'rps': 11.2018,
+ 'total_time_s': 60.7938,
+ 'avg_time_ms': 885.2691,
+ 'min_time_ms': 240.4016,
+ 'max_time_ms': 1013.8916,
+ 'median_time_ms': 887.6399,
+ 'p95_time_ms': 926.9408,
+ 'p99_time_ms': 955.7725,
+ 'sum_all_rt_ms': 602868.2364} (util_log.py:25)
+[2023-06-10 06:03:57,252] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:03:58,034] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:03:58,064] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 120},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:03:58,064] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:03:58,065] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:04:04,759] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:04:06,762] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:04:06,762] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:04:06,764] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:04:06,764] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:04:26,773] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:04:26,774] -  INFO:  search                             217     0(0.00%)  |     895     240    1008     907     962  |   10.85    0.00 (util_log.py:25)
+[2023-06-10 06:04:46,783] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:04:46,784] -  INFO:  search                             435     0(0.00%)  |     917     812    1027     917    1006  |   10.90    0.00 (util_log.py:25)
+[2023-06-10 06:05:06,789] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:06,789] -  INFO:  search                             654     0(0.00%)  |     913     884     956     913     951  |   10.95    0.00 (util_log.py:25)
+[2023-06-10 06:05:07,653] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:05:07,654] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:05:07,654] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:07,655] -  INFO:  search                             664     0(0.00%)  |     909     240    1027     912     975  |   10.91    0.00 (util_log.py:25)
+[2023-06-10 06:05:07,655] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:05:07,655] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:07,655] -  INFO:  search                             664     0(0.00%)  |     909     240    1027     912     975  |   10.91    0.00 (util_log.py:25)
+[2023-06-10 06:05:07,655] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:05:07,680] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 664,
+ 'rps': 10.9051,
+ 'total_time_s': 60.8891,
+ 'avg_time_ms': 909.0035,
+ 'min_time_ms': 240.0172,
+ 'max_time_ms': 1027.4807,
+ 'median_time_ms': 912.8973,
+ 'p95_time_ms': 945.5222,
+ 'p99_time_ms': 975.442,
+ 'sum_all_rt_ms': 603578.2994} (util_log.py:25)
+[2023-06-10 06:05:07,684] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:05:08,489] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:05:08,521] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 200},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:05:08,522] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:05:08,522] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:05:15,298] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:05:17,301] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:05:17,301] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:05:17,301] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:17,301] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:05:37,316] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:37,316] -  INFO:  search                             183     0(0.00%)  |    1058     258    1216    1076    1109  |    9.15    0.00 (util_log.py:25)
+[2023-06-10 06:05:57,326] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:05:57,327] -  INFO:  search                             368     0(0.00%)  |    1083     989    1148    1084    1142  |    9.25    0.00 (util_log.py:25)
+[2023-06-10 06:06:17,336] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:06:17,336] -  INFO:  search                             553     0(0.00%)  |    1080    1045    1123    1081    1110  |    9.25    0.00 (util_log.py:25)
+[2023-06-10 06:06:18,338] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:06:18,339] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:06:18,339] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:06:18,339] -  INFO:  search                             563     0(0.00%)  |    1074     258    1216    1080    1130  |    9.22    0.00 (util_log.py:25)
+[2023-06-10 06:06:18,339] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:06:18,340] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:06:18,340] -  INFO:  search                             563     0(0.00%)  |    1074     258    1216    1080    1130  |    9.22    0.00 (util_log.py:25)
+[2023-06-10 06:06:18,340] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:06:18,366] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 563,
+ 'rps': 9.224,
+ 'total_time_s': 61.0364,
+ 'avg_time_ms': 1074.158,
+ 'min_time_ms': 258.2053,
+ 'max_time_ms': 1216.7715,
+ 'median_time_ms': 1080.7303,
+ 'p95_time_ms': 1107.8698,
+ 'p99_time_ms': 1130.6492,
+ 'sum_all_rt_ms': 604750.9793} (util_log.py:25)
+[2023-06-10 06:06:18,369] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:06:19,171] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:06:19,202] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 400},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:06:19,202] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:06:19,202] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:06:25,906] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:06:27,908] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:06:27,908] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:06:27,909] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:06:27,909] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:06:47,915] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:06:47,916] -  INFO:  search                             130     0(0.00%)  |    1478     325    1662    1517    1578  |    6.50    0.00 (util_log.py:25)
+[2023-06-10 06:07:07,924] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:07,925] -  INFO:  search                             261     0(0.00%)  |    1526    1446    1654    1526    1616  |    6.55    0.00 (util_log.py:25)
+[2023-06-10 06:07:27,931] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:27,931] -  INFO:  search                             392     0(0.00%)  |    1522    1473    1576    1523    1566  |    6.55    0.00 (util_log.py:25)
+[2023-06-10 06:07:29,392] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:07:29,394] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:07:29,394] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:29,394] -  INFO:  search                             402     0(0.00%)  |    1509     325    1662    1521    1610  |    6.54    0.00 (util_log.py:25)
+[2023-06-10 06:07:29,395] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:07:29,395] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:29,395] -  INFO:  search                             402     0(0.00%)  |    1509     325    1662    1521    1610  |    6.54    0.00 (util_log.py:25)
+[2023-06-10 06:07:29,395] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:07:29,421] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 402,
+ 'rps': 6.5384,
+ 'total_time_s': 61.4825,
+ 'avg_time_ms': 1509.3611,
+ 'min_time_ms': 325.6605,
+ 'max_time_ms': 1662.5966,
+ 'median_time_ms': 1521.7488,
+ 'p95_time_ms': 1560.5185,
+ 'p99_time_ms': 1610.1505,
+ 'sum_all_rt_ms': 606763.1464} (util_log.py:25)
+[2023-06-10 06:07:29,424] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:07:30,203] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:07:30,234] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 600},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:07:30,234] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:07:30,234] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:07:36,970] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:07:38,973] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:07:38,973] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:07:38,974] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:38,974] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:07:58,986] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:07:58,987] -  INFO:  search                              99     0(0.00%)  |    1908     387    2106    1981    2016  |    4.95    0.00 (util_log.py:25)
+[2023-06-10 06:08:18,991] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:08:18,991] -  INFO:  search                             200     0(0.00%)  |    1984    1955    2008    1984    2004  |    5.05    0.00 (util_log.py:25)
+[2023-06-10 06:08:39,038] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:08:39,039] -  INFO:  search                             301     0(0.00%)  |    1976    1841    2122    1977    2109  |    5.05    0.00 (util_log.py:25)
+[2023-06-10 06:08:40,758] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:08:40,759] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:08:40,759] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:08:40,760] -  INFO:  search                             311     0(0.00%)  |    1957     387    2122    1981    2105  |    5.03    0.00 (util_log.py:25)
+[2023-06-10 06:08:40,760] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:08:40,760] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:08:40,760] -  INFO:  search                             311     0(0.00%)  |    1957     387    2122    1981    2105  |    5.03    0.00 (util_log.py:25)
+[2023-06-10 06:08:40,760] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:08:40,788] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 311,
+ 'rps': 5.0337,
+ 'total_time_s': 61.7838,
+ 'avg_time_ms': 1957.4046,
+ 'min_time_ms': 387.3459,
+ 'max_time_ms': 2122.7725,
+ 'median_time_ms': 1981.5672,
+ 'p95_time_ms': 2004.2812,
+ 'p99_time_ms': 2105.8326,
+ 'sum_all_rt_ms': 608752.8165} (util_log.py:25)
+[2023-06-10 06:08:40,790] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
+[2023-06-10 06:08:41,661] -  INFO: ---------------------------------------------- Concurrency task started! ----------------------------------------------- (util_log.py:25)
+[2023-06-10 06:08:41,691] -  INFO: [MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_user_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'ef': 800},
+                                  'timeout': 1800}}]} (util_log.py:25)
+[2023-06-10 06:08:41,691] -  INFO: [MultiProcessConcurrent] Get multiprocessing start method: forkserver (util_log.py:25)
+[2023-06-10 06:08:41,691] -  INFO: [MultiProcessConcurrent] Start initializing the concurrent pool (util_log.py:25)
+[2023-06-10 06:08:48,378] -  INFO: [MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s (util_log.py:25)
+[2023-06-10 06:08:50,380] -  INFO: [MultiProcessConcurrent] Start concurrent pool (util_log.py:25)
+[2023-06-10 06:08:50,380] -  INFO: [ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference (util_log.py:25)
+[2023-06-10 06:08:50,381] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:08:50,381] -  INFO: --------------------------------------------------------------------------------------------------------------------- (util_log.py:25)
+[2023-06-10 06:09:10,392] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:09:10,393] -  INFO:  search                              81     0(0.00%)  |    2312     438    2589    2424    2513  |    4.05    0.00 (util_log.py:25)
+[2023-06-10 06:09:30,396] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:09:30,397] -  INFO:  search                             163     0(0.00%)  |    2431    2360    2480    2432    2480  |    4.10    0.00 (util_log.py:25)
+[2023-06-10 06:09:50,401] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:09:50,402] -  INFO:  search                             244     0(0.00%)  |    2443    2394    2600    2439    2540  |    4.05    0.00 (util_log.py:25)
+[2023-06-10 06:09:52,383] -  INFO: [MultiProcessConcurrent] End concurrent pool (util_log.py:25)
+[2023-06-10 06:09:52,384] -  INFO: ------------------------------------------------- Print final status ------------------------------------------------ (util_log.py:25)
+[2023-06-10 06:09:52,384] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:09:52,385] -  INFO:  search                             254     0(0.00%)  |    2398     438    2610    2432    2580  |    4.10    0.00 (util_log.py:25)
+[2023-06-10 06:09:52,385] -  INFO: ------------------------ Print the status without start and end warmup time:0s as a reference ----------------------- (util_log.py:25)
+[2023-06-10 06:09:52,385] -  INFO:  Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s (util_log.py:25)
+[2023-06-10 06:09:52,386] -  INFO:  search                             254     0(0.00%)  |    2398     438    2610    2432    2580  |    4.10    0.00 (util_log.py:25)
+[2023-06-10 06:09:52,386] -  INFO: [ParserResult] Completed sync report (util_log.py:25)
+[2023-06-10 06:09:52,408] -  INFO: [MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 254,
+ 'rps': 4.0967,
+ 'total_time_s': 62.0018,
+ 'avg_time_ms': 2398.3554,
+ 'min_time_ms': 438.8944,
+ 'max_time_ms': 2610.4698,
+ 'median_time_ms': 2432.8051,
+ 'p95_time_ms': 2482.6655,
+ 'p99_time_ms': 2580.0156,
+ 'sum_all_rt_ms': 609182.2696} (util_log.py:25)
+[2023-06-10 06:09:52,410] -  INFO: ---------------------------------------------- Concurrency task finished! ---------------------------------------------- (util_log.py:25)
