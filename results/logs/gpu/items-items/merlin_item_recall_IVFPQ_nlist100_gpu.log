@@ -1,0 +1,207 @@
+Fri 07 Jul 2023 02:11:14 PM UTC
+Fri 07 Jul 2023 02:11:16 PM UTC
+Fri 07 Jul 2023 02:11:26 PM UTC
+------------------------------------------------- Recall task started! -------------------------------------------------
+[DatasetDownload] File existed:/raid/whicks/proj_milvus/vectordb-benchmark/datasets/dataset_files/yoochoose.hdf5
+[ClientMilvus] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {'batch': 100},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_item_collection',
+                       'other_fields': []},
+ 'index_params': {'index_type': 'GPU_IVF_PQ',
+                  'index_param': {'nlist': 100, 'm': 64, 'nbits': 8}},
+ 'load_params': {},
+ 'search_params': {'timeout': 1800,
+                   'top_k': [100],
+                   'nq': [1000],
+                   'search_param': {'nprobe': [5, 10, 20]}},
+ 'concurrent_params': {},
+ 'concurrent_tasks': []}
+[ClientMilvus] Start preparing data
+[ClientMilvus] Start inserting data
+[ClientMilvus] Start building index
+[ClientMilvus] Start loading data
+[ClientMilvus] Insert time:2.644s, Index time:3.038s, Load time:3.532s
+[ClientMilvus] Data preparation completed
+[ClientMilvus] Search recall:0.886, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'nprobe': 5}, 'timeout': 1800, 'metric_type': 'L2'}
+[ClientMilvus] Search recall:0.966, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'nprobe': 10}, 'timeout': 1800, 'metric_type': 'L2'}
+[ClientMilvus] Search recall:0.988, search params:{'top_k': 100, 'nq': 1000, 'search_param': {'nprobe': 20}, 'timeout': 1800, 'metric_type': 'L2'}
+------------------------------------------------ Recall task finished! -------------------------------------------------
+Fri 07 Jul 2023 02:11:57 PM UTC
+Fri 07 Jul 2023 02:11:57 PM UTC
+---------------------------------------------- Concurrency task started! -----------------------------------------------
+[MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_item_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'nprobe': 5},
+                                  'timeout': 1800}}]}
+[MultiProcessConcurrent] Get multiprocessing start method: forkserver
+[MultiProcessConcurrent] Start initializing the concurrent pool
+[MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s
+[MultiProcessConcurrent] Start concurrent pool
+[ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+---------------------------------------------------------------------------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                             840     0(0.00%)  |     233     172     355     230     303  |   42.00    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            1727     0(0.00%)  |     226     180     313     225     278  |   44.35    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2603     0(0.00%)  |     226     180     269     225     257  |   43.80    0.00
+[MultiProcessConcurrent] End concurrent pool
+------------------------------------------------- Print final status ------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2613     0(0.00%)  |     228     172     355     226     284  |   43.43    0.00
+------------------------ Print the status without start and end warmup time:0s as a reference -----------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2613     0(0.00%)  |     228     172     355     226     284  |   43.43    0.00
+[ParserResult] Completed sync report
+[MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 2613,
+ 'rps': 43.4334,
+ 'total_time_s': 60.1611,
+ 'avg_time_ms': 228.876,
+ 'min_time_ms': 172.2334,
+ 'max_time_ms': 355.0609,
+ 'median_time_ms': 226.9055,
+ 'p95_time_ms': 257.9827,
+ 'p99_time_ms': 284.6782,
+ 'sum_all_rt_ms': 598053.0549}
+---------------------------------------------- Concurrency task finished! ----------------------------------------------
+Fri 07 Jul 2023 02:13:08 PM UTC
+Fri 07 Jul 2023 02:13:08 PM UTC
+---------------------------------------------- Concurrency task started! -----------------------------------------------
+[MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_item_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'nprobe': 10},
+                                  'timeout': 1800}}]}
+[MultiProcessConcurrent] Get multiprocessing start method: forkserver
+[MultiProcessConcurrent] Start initializing the concurrent pool
+[MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s
+[MultiProcessConcurrent] Start concurrent pool
+[ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+---------------------------------------------------------------------------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                             857     0(0.00%)  |     231     185     341     229     283  |   42.85    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            1714     0(0.00%)  |     231     187     279     230     266  |   42.85    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2580     0(0.00%)  |     230     179     267     229     262  |   43.30    0.00
+[MultiProcessConcurrent] End concurrent pool
+------------------------------------------------- Print final status ------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2588     0(0.00%)  |     230     179     341     229     268  |   43.07    0.00
+------------------------ Print the status without start and end warmup time:0s as a reference -----------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2588     0(0.00%)  |     230     179     341     229     268  |   43.07    0.00
+[ParserResult] Completed sync report
+[MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 2588,
+ 'rps': 43.066,
+ 'total_time_s': 60.0938,
+ 'avg_time_ms': 230.8371,
+ 'min_time_ms': 179.3116,
+ 'max_time_ms': 341.2642,
+ 'median_time_ms': 229.725,
+ 'p95_time_ms': 255.3986,
+ 'p99_time_ms': 268.811,
+ 'sum_all_rt_ms': 597406.4799}
+---------------------------------------------- Concurrency task finished! ----------------------------------------------
+Fri 07 Jul 2023 02:14:20 PM UTC
+Fri 07 Jul 2023 02:14:20 PM UTC
+---------------------------------------------- Concurrency task started! -----------------------------------------------
+[MultiProcessConcurrent] Parameters used: 
+{'database_params': {'metric_type': 'L2', 'dim': 64, 'max_length': 256},
+ 'insert_params': {},
+ 'connection_params': {'secure': False},
+ 'collection_params': {'collection_name': 'merlin_item_collection'},
+ 'index_params': {},
+ 'load_params': {},
+ 'search_params': {},
+ 'concurrent_params': {'concurrent_number': 10,
+                       'during_time': 60,
+                       'warm_time': 0,
+                       'interval': 20},
+ 'concurrent_tasks': [{'type': 'query',
+                       'weight': 0,
+                       'params': {'expr': 'id in [1, 10, 100, 1000]',
+                                  'timeout': 1800}},
+                      {'type': 'search',
+                       'weight': 1,
+                       'params': {'nq': 1000,
+                                  'top_k': 100,
+                                  'search_param': {'nprobe': 20},
+                                  'timeout': 1800}}]}
+[MultiProcessConcurrent] Get multiprocessing start method: forkserver
+[MultiProcessConcurrent] Start initializing the concurrent pool
+[MultiProcessConcurrent] Start waiting for 10 processes ready: 2.0s
+[MultiProcessConcurrent] Start concurrent pool
+[ParserResult] Starting sync report, interval:20s, intermediate state results are available for reference
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+---------------------------------------------------------------------------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                             840     0(0.00%)  |     234     171     327     233     291  |   42.00    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            1703     0(0.00%)  |     231     180     288     230     275  |   43.15    0.00
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2557     0(0.00%)  |     232     186     305     231     278  |   42.70    0.00
+[MultiProcessConcurrent] End concurrent pool
+------------------------------------------------- Print final status ------------------------------------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2565     0(0.00%)  |     232     171     327     231     279  |   42.59    0.00
+------------------------ Print the status without start and end warmup time:0s as a reference -----------------------
+ Name                            # reqs      # fails  |     Avg     Min     Max  Median    TP99  |   req/s failures/s
+ search                            2565     0(0.00%)  |     232     171     327     231     279  |   42.59    0.00
+[ParserResult] Completed sync report
+[MultiProcessConcurrent] Summary of overall results: 
+{'reqs': 2565,
+ 'rps': 42.5882,
+ 'total_time_s': 60.228,
+ 'avg_time_ms': 232.964,
+ 'min_time_ms': 171.3885,
+ 'max_time_ms': 327.6928,
+ 'median_time_ms': 231.9292,
+ 'p95_time_ms': 263.3608,
+ 'p99_time_ms': 279.919,
+ 'sum_all_rt_ms': 597552.7248}
+---------------------------------------------- Concurrency task finished! ----------------------------------------------
+Fri 07 Jul 2023 02:15:31 PM UTC
+Fri 07 Jul 2023 02:15:31 PM UTC
+Fri 07 Jul 2023 02:15:36 PM UTC
