@@ -11,7 +11,7 @@ Dataset (YooChoose) | GPU Speedup | Recall | QPS
 --- | --- | --- | --- 
 Item-item similarity | 4x to 15x (avg. 8.5x) | 0.665-0.997 | Up to 43504 (with GPU)
 User-user similarity | 37x to 91x (avg. 76.1x) | 0.922-0.999 | Up to 41708 (with GPU)
-User-item similarity | 4x to 17x (avg. 9.3x | 0.974-1.000 | Up to 43719 (with GPU)
+User-item similarity | 4x to 17x (avg. 9.3x) | 0.974-1.000 | Up to 43719 (with GPU)
 
 We considered the following settings and variations of parameters in these benchmarks:
 
